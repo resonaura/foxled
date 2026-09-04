@@ -14,6 +14,15 @@
 
 **FoxLED** is a comprehensive ambient PC backlighting (ambilight) and audio-reactive lighting suite for Windows 10, interfacing with addressable WS2812B / FastLED strips via Arduino microcontrollers using the Adalight protocol.
 
+
+<p align="center">
+  <img src="media/foxled-ambilight.jpg" width="800" alt="FoxLED Monitor Ambient Lighting" />
+</p>
+
+<p align="center">
+  <img src="media/foxled-ui.jpg" width="800" alt="FoxLED Control Software" />
+</p>
+
 ---
 
 > [!WARNING]

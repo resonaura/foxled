@@ -1,0 +1,333 @@
+<Window x:Class="FoxLED.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Name="MainAppWindow" AllowsTransparency="True" Title="FoxLED" Height="450" Width="800" Background="#00FFFFFF" ResizeMode="CanMinimize" WindowStyle="None" xmlns:foxled="clr-namespace:FoxLED;assembly=FoxLED">
+  <FrameworkElement.Resources>
+    <ResourceDictionary Source="AppStyles/Main.xaml" />
+  </FrameworkElement.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="80" />
+      <RowDefinition Height="*" />
+      <RowDefinition Name="PSL_ROW" Height="0" />
+    </Grid.RowDefinitions>
+    <Grid Row="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="80" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid Name="header" ColumnSpan="3" Background="#0d0d0d" Opacity="0.8" />
+      <Grid Name="AppLogo" Column="0">
+        <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+          <Path Data="M38.15,9.85 Q32.25,4 24,4 Q15.7,4 9.85,9.85 Q4,15.7 4,24 Q4,32.25 9.85,38.15 Q15.7,44 24,44 Q32.25,44 38.15,38.15 Q44,32.25 44,24 Q44,15.7 38.15,9.85 M26.7,18.65 L34.4,12.05 L34.4,20.9 L37.95,23.95 L24,35.9 L10,23.95 L13.55,20.9 L13.55,12.05 L21.3,18.65 L26.7,18.65" Height="47.333" Stretch="Fill" Width="47.333" Canvas.Left="15.667" Canvas.Top="17">
+            <Shape.Fill>
+              <LinearGradientBrush>
+                <GradientStop Color="#3d81d1" Offset="1" />
+                <GradientStop Color="#7D14BD" Offset="0" />
+              </LinearGradientBrush>
+            </Shape.Fill>
+          </Path>
+        </Canvas>
+      </Grid>
+      <Grid Column="1">
+        <Label Name="AppTitle" Content="FoxLED" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,12,0,0" Height="54" Width="134" FontSize="32" FontFamily="Segoe UI Light" FontWeight="Bold" Grid.Column="1">
+          <Control.Foreground>
+            <LinearGradientBrush>
+              <GradientStop Color="#3d81d1" Offset="0" />
+              <GradientStop Color="#7D14BD" Offset="1" />
+            </LinearGradientBrush>
+          </Control.Foreground>
+        </Label>
+      </Grid>
+      <Grid Column="2">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+          <Button Name="minim" Background="#00FFFFFF" Style="{DynamicResource ButtonStyle2}" Width="32" Height="32" BorderThickness="0" Cursor="Hand">
+            <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="minim_icon" Width="16" Height="16">
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="minim_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.2" Data="M31,27.1 L31,22.25 L1,22.25 L1,27.1 L31,27.1" Height="3" Stretch="Fill" Width="16" Canvas.Top="10" />
+            </Canvas>
+          </Button>
+          <Button Name="close" Background="#00FFFFFF" Style="{DynamicResource ButtonStyle2}" Width="32" Height="32" BorderThickness="0" Cursor="Hand">
+            <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="close_icon" Width="16" Height="16">
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="close_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.2" Data="M31,3.85 L28.1,1 L16,13.1 L3.85,1 L1,3.85 L13.1,16 L1,28.1 L3.85,31 L16,18.85 L28.1,31 L31,28.1 L18.85,16 L31,3.85" Height="16" Stretch="Fill" Width="16" Canvas.Left="0" Canvas.Top="0" />
+            </Canvas>
+          </Button>
+        </StackPanel>
+      </Grid>
+    </Grid>
+    <Grid Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="80" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid Column="0">
+        <Grid Background="#020202" Opacity="0.9" />
+        <StackPanel>
+          <Button Name="hp" BorderBrush="#00FFFFFF" Grid.Row="1" Background="#00FFFFFF" Style="{DynamicResource ButtonStyle2}" Cursor="Hand" BorderThickness="0">
+            <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="hp_icon" Width="40" Height="40">
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="hp_accent_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.2" Data="M98.25,62.75 L116,62.75 L60.05,6.8 L4,62.75 L21.8,62.75 L98.25,62.75" Canvas.Left="0.133" Canvas.Top="0" Height="22.223" Stretch="Fill" Width="39.867" />
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="hp_single_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.1" Data="M98.7,66.6 Q98.7,64.45 98.25,62.75 L21.8,62.75 Q21.3,64.45 21.3,66.6 L21.3,103.25 Q21.3,113.25 31.3,113.25 L48.45,113.25 Q48.35,112.75 48.35,112.2 L48.35,99.9 Q48.35,96.55 51.3,96.55 L68.35,96.55 Q69.45,96.55 70.15,97 Q71.35,97.8 71.35,99.9 L71.35,112.2 Q71.35,112.75 71.25,113.25 L88.7,113.25 Q98.7,113.25 98.7,103.25 L98.7,66.6" Canvas.Left="6.178" Canvas.Top="21.243" Height="18.538" Stretch="Fill" Width="27.144" />
+            </Canvas>
+          </Button>
+          <Button Name="st" Style="{DynamicResource ButtonStyle2}" BorderBrush="#00FFFFFF" Grid.Row="2" Background="#00FFFFFF" Cursor="Hand" BorderThickness="0">
+            <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="st_icon" Width="40" Height="40">
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="st_accent_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.2" Data="M60,41.05 Q52.159375,41.079296875 46.6,46.6 Q41.079296875,52.159375 41.05,60 Q41.079296875,67.8404296875 46.6,73.35 Q52.159375,78.9205078125 60,78.9 Q67.8404296875,78.9205078125 73.35,73.35 Q78.9205078125,67.8404296875 78.9,60 Q78.9205078125,52.159375 73.35,46.6 Q67.8404296875,41.079296875 60,41.05 M68.45,56.25 Q69.2,57.95 69.2,60 Q69.2,63.8 66.5,66.5 Q63.8,69.2 60,69.2 Q56.2,69.2 53.5,66.5 Q50.8,63.8 50.8,60 Q50.8,58 51.55,56.3 Q51.6,56.25 51.6,56.2 Q52.25,54.75 53.5,53.5 Q56.2,50.8 60,50.8 Q63.8,50.8 66.5,53.5 Q67.75,54.75 68.4,56.2 L68.45,56.25" Canvas.Left="8" Canvas.Top="8" Height="23.732" Stretch="Fill" Width="24" />
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="st_single_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.1" Data="M89,21.95 Q87.6,20.55 86.2,21.95 L79.2,28.95 Q74.1982421875,25.7693359375 68.4,24.45 L68.4,14.6 Q68.4,12.6 66.4,12.6 L53.6,12.6 Q51.6,12.6 51.6,14.6 L51.6,24.5 Q45.8328125,25.8337890625 40.85,29 L33.8,21.95 Q32.4,20.55 31,21.95 L21.95,31 Q20.55,32.4 21.95,33.8 L29.05,40.9 Q25.896484375,45.8630859375 24.6,51.6 L14.6,51.6 Q12.6,51.6 12.6,53.6 L12.6,66.4 Q12.6,68.4 14.6,68.4 L24.6,68.4 Q25.8853515625,74.1591796875 29,79.1 L21.95,86.2 Q20.55,87.6 21.95,89 L31,98.05 Q32.4,99.45 33.8,98.05 L40.85,91 Q45.826171875,94.17265625 51.6,95.45 L51.6,105.4 Q51.6,107.4 53.6,107.4 L66.4,107.4 Q68.4,107.4 68.4,105.4 L68.4,95.5 Q74.206640625,94.2373046875 79.2,91.05 L86.2,98.05 Q87.6,99.45 89,98.05 L98.05,89 Q99.45,87.6 98.05,86.2 L91.1,79.25 Q94.2947265625,74.22421875 95.6,68.4 L105.4,68.4 Q107.4,68.4 107.4,66.4 L107.4,53.6 Q107.4,51.6 105.4,51.6 L95.6,51.6 Q94.280859375,45.8013671875 91.05,40.75 L98.05,33.8 Q99.45,32.4 98.05,31 L89,21.95 M91.95,60 Q91.9791015625,73.2595703125 82.6,82.6 Q73.2595703125,91.9791015625 60,91.95 Q46.740234375,91.9791015625 37.35,82.6 Q28.020703125,73.2595703125 28,60 Q28.020703125,46.740234375 37.35,37.35 Q46.740234375,28.020703125 60,28 Q73.2595703125,28.020703125 82.6,37.35 Q91.9791015625,46.740234375 91.95,60" Height="40.148" Stretch="Fill" Width="40.132" />
+            </Canvas>
+          </Button>
+          <Button Name="custom" Style="{DynamicResource ButtonStyle2}" BorderBrush="#00FFFFFF" Grid.Row="3" Background="#00FFFFFF" Cursor="Hand" BorderThickness="0">
+            <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="custom_icon" Width="40" Height="40">
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="custom_accent_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.2" Data="M61.05,11.2 Q62.883984375,9.1970703125 62.8,6.45 Q62.743359375,3.8837890625 60.7,1.95 Q58.8103515625,0.1103515625 56.1,0.1 Q56.0326171875,0.09765625 55.95,0.1 Q53.3146484375,0.2484375 51.45,2.2 L29.75,25.15 Q18.6578125,25.1109375 16.75,40.4 Q15.2541015625,40.38359375 13.6,40.3 Q12.5939453125,40.2517578125 11.8,40.95 Q11.05390625,41.6453125 11,42.65 Q10.9509765625,43.70546875 11.65,44.45 Q12.345703125,45.2453125 13.35,45.3 Q16.2908203125,45.4466796875 18.85,45.4 Q19.1130859375,45.41796875 19.35,45.4 Q28.889453125,45.170703125 33.55,42.55 Q38.8439453125,39.7123046875 39.05,34.45 L61.05,11.2 M31.15,38.15 Q27.90625,39.8654296875 21.85,40.25 Q23.3412109375,30.8513671875 29.8,30.25 L34,34.45 Q33.663671875,36.823828125 31.15,38.15 M57.8,6.6 Q57.815625,7.2853515625 57.35,7.75 L36.5,29.85 L34.3,27.65 L55.15,5.65 Q55.6025390625,5.150390625 56.25,5.1 Q56.843359375,5.1404296875 57.25,5.55 Q57.7568359375,6.01640625 57.8,6.6" Canvas.Left="10" Height="26" Stretch="Fill" Width="28.333" Canvas.Top="0" />
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="custom_single_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.1" Data="M63,17.55 Q62.2890625,16.8462890625 61.25,16.85 Q60.2107421875,16.8462890625 59.45,17.55 Q58.7462890625,18.3107421875 58.75,19.35 L58.75,48.35 Q58.75,50.85 56.25,50.85 L7.75,50.85 Q5.25,50.85 5.25,48.35 L5.25,18.05 Q5.25,15.55 7.75,15.55 L34.25,15.55 Q35.2890625,15.553515625 36,14.8 Q36.753515625,14.0890625 36.75,13.05 Q36.753515625,12.0107421875 36,11.25 Q35.2890625,10.5462890625 34.25,10.55 L7.75,10.55 Q0.2501953125,10.55 0.25,18.05 L0.25,48.35 Q0.25,55.8498046875 7.75,55.85 L29.5,55.85 L29.5,57.2 L23.55,57.2 Q22.5107421875,57.1962890625 21.75,57.9 Q21.0462890625,58.6607421875 21.05,59.7 Q21.0462890625,60.7390625 21.75,61.45 Q22.5107421875,62.203515625 23.55,62.2 L40.45,62.2 Q41.4890625,62.203515625 42.2,61.45 Q42.953515625,60.7390625 42.95,59.7 Q42.953515625,58.6607421875 42.2,57.9 Q41.4890625,57.1962890625 40.45,57.2 L34.5,57.2 L34.5,55.85 L56.25,55.85 Q63.1814453125,55.85 63.7,49.45 Q63.75,48.918359375 63.75,48.35 L63.75,19.35 Q63.753515625,18.3107421875 63,17.55" Height="35" Stretch="Fill" Width="40" Canvas.Top="3" />
+            </Canvas>
+          </Button>
+          <Button Name="inf" Style="{DynamicResource ButtonStyle2}" BorderBrush="#00FFFFFF" Grid.Row="4" Height="80" VerticalAlignment="Top" Background="#00FFFFFF" Cursor="Hand" BorderThickness="0">
+            <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="inf_icon" Width="40" Height="40">
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="inf_accent_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.2" Data="M88.35,88.3 Q100.12578125,76.5908203125 100.1,60 Q100.115625,43.4044921875 88.3,31.6 Q76.591796875,19.8806640625 60,19.85 Q43.4087890625,19.8783203125 31.6,31.6 L31.6,31.6 Q19.8783203125,43.4087890625 19.85,60 Q19.8806640625,76.591796875 31.6,88.3 Q43.4044921875,100.115625 60,100.1 Q76.5908203125,100.12578125 88.3,88.35 L88.35,88.3 M56.85,36.45 Q58.1,35.2 59.9,35.2 Q61.75,35.2 63,36.45 Q64.25,37.75 64.25,39.55 Q64.25,41.35 63,42.65 Q61.75,43.9 59.9,43.9 Q58.1,43.9 56.85,42.65 Q55.55,41.35 55.55,39.55 Q55.55,37.75 56.85,36.45 M56.85,50.85 L63,50.85 L63,83.7 L56.85,83.7 L56.85,50.85" Canvas.Left="5.667" Canvas.Top="5.667" Height="28.333" Stretch="Fill" Width="28.333" />
+              <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="inf_single_path" Stroke="#00FFFFFF" Fill="#FFFFFF" Opacity="0.1" Data="M97.55,97.55 Q113.17421875,81.99140625 113.15,60 Q113.1841796875,37.9953125 97.55,22.35 Q82.0080078125,6.819140625 60,6.8 Q38.008984375,6.8216796875 22.4,22.35 L22.35,22.4 Q6.8216796875,38.008984375 6.8,60 Q6.819140625,82.0080078125 22.35,97.55 Q37.9953125,113.1841796875 60,113.15 Q81.99140625,113.17421875 97.55,97.55 L97.55,97.55 M100.1,60 Q100.12578125,76.5908203125 88.35,88.3 L88.3,88.35 Q76.5908203125,100.12578125 60,100.1 Q43.4044921875,100.115625 31.6,88.3 Q19.8806640625,76.591796875 19.85,60 Q19.8783203125,43.4087890625 31.6,31.6 L31.6,31.6 Q43.4087890625,19.8783203125 60,19.85 Q76.591796875,19.8806640625 88.3,31.6 Q100.115625,43.4044921875 100.1,60" Height="40" Stretch="Fill" Width="40" />
+            </Canvas>
+          </Button>
+        </StackPanel>
+      </Grid>
+      <Grid Column="1">
+        <Grid Background="#000" Opacity="0.95" />
+        <TabControl Name="content" Width="720" Height="370" Background="#00FFFFFF" Foreground="#fff" BorderThickness="0" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">
+          <FrameworkElement.Resources>
+            <ResourceDictionary>
+              <Style x:Key="{x:Type TabItem}" TargetType="{x:Type TabItem}">
+                <Setter Property="Template">
+                  <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}" />
+                  </Setter.Value>
+                </Setter>
+              </Style>
+            </ResourceDictionary>
+          </FrameworkElement.Resources>
+          <TabItem Name="hpTab">
+            <StackPanel Name="modes" Margin="-2,-4,-2,-2">
+              <Label Foreground="#999" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontFamily="Segoe UI Light" Content="Режимы:" Height="55" Padding="8" Width="720" />
+              <StackPanel Name="def_fx_buttons">
+                <Panel.Background>
+                  <LinearGradientBrush Opacity=".03">
+                    <GradientStop Color="#fff" Offset="0" />
+                    <GradientStop Color="#ddd" Offset="1" />
+                  </LinearGradientBrush>
+                </Panel.Background>
+                <StackPanel Orientation="Horizontal">
+                  <Panel.Background>
+                    <LinearGradientBrush Opacity=".04">
+                      <GradientStop Color="#fff" Offset="0" />
+                      <GradientStop Color="#ddd" Offset="1" />
+                    </LinearGradientBrush>
+                  </Panel.Background>
+                  <Viewbox Width="30" Height="30">
+                    <Canvas Width="24" Height="24">
+                      <Path Fill="#FFFFFFFF" Opacity="0.1" Data="M5.05,1.5 L3.6,2.95 L12.65,12 L3.6,21.05 L5.05,22.5 L15.55,12 L5.05,1.5" Height="14" Stretch="Fill" Width="9" Canvas.Left="4" Canvas.Top="5" />
+                      <Path Fill="#FFFFFFFF" Opacity="0.2" Data="M9.95,1.5 L8.5,2.95 L17.55,12 L8.5,21.05 L9.95,22.5 L20.45,12 L9.95,1.5" />
+                    </Canvas>
+                  </Viewbox>
+                  <Label Foreground="#fff" HorizontalAlignment="Left" FontSize="14" FontFamily="Segoe UI Light" Content="По умолчанию:" Height="30" Margin="0,0,0,0" />
+                </StackPanel>
+                <StackPanel Name="def_fx_buttons_1" Height="45" Orientation="Horizontal">
+                  <Button Name="static_foxled" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="FoxLED" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="static_black" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Чёрный" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                </StackPanel>
+              </StackPanel>
+              <StackPanel Name="static_fx_buttons" Opacity="1">
+                <Panel.Background>
+                  <LinearGradientBrush Opacity=".03">
+                    <GradientStop Color="#fff" Offset="0" />
+                    <GradientStop Color="#ddd" Offset="1" />
+                  </LinearGradientBrush>
+                </Panel.Background>
+                <StackPanel Orientation="Horizontal">
+                  <Panel.Background>
+                    <LinearGradientBrush Opacity=".04">
+                      <GradientStop Color="#fff" Offset="0" />
+                      <GradientStop Color="#ddd" Offset="1" />
+                    </LinearGradientBrush>
+                  </Panel.Background>
+                  <Viewbox Width="30" Height="30">
+                    <Canvas Width="24" Height="24">
+                      <Path Fill="#FFFFFFFF" Opacity="0.1" Data="M5.05,1.5 L3.6,2.95 L12.65,12 L3.6,21.05 L5.05,22.5 L15.55,12 L5.05,1.5" Height="14" Stretch="Fill" Width="9" Canvas.Left="4" Canvas.Top="5" />
+                      <Path Fill="#FFFFFFFF" Opacity="0.2" Data="M9.95,1.5 L8.5,2.95 L17.55,12 L8.5,21.05 L9.95,22.5 L20.45,12 L9.95,1.5" />
+                    </Canvas>
+                  </Viewbox>
+                  <Label Foreground="#fff" HorizontalAlignment="Left" FontSize="14" FontFamily="Segoe UI Light" Content="Статические:" Height="30" Margin="0,0,0,0" />
+                </StackPanel>
+                <StackPanel Name="static_fx_buttons_1" Height="45" Orientation="Horizontal">
+                  <Button Name="static_red" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Красный" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="static_green" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Зелёный" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="static_blue" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Синий" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="static_cyan" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Голубой" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                </StackPanel>
+                <StackPanel Name="static_fx_buttons_2" Height="45" Orientation="Horizontal">
+                  <Button Name="static_coral" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Коралловый" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="static_yellow" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Жёлтый" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="static_light_green" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Салатовый" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="static_white" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Белый" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                </StackPanel>
+              </StackPanel>
+              <StackPanel Name="dynamic_fx_buttons">
+                <Panel.Background>
+                  <LinearGradientBrush Opacity=".03">
+                    <GradientStop Color="#fff" Offset="0" />
+                    <GradientStop Color="#ddd" Offset="1" />
+                  </LinearGradientBrush>
+                </Panel.Background>
+                <StackPanel Orientation="Horizontal">
+                  <Panel.Background>
+                    <LinearGradientBrush Opacity=".04">
+                      <GradientStop Color="#fff" Offset="0" />
+                      <GradientStop Color="#ddd" Offset="1" />
+                    </LinearGradientBrush>
+                  </Panel.Background>
+                  <Viewbox Width="30" Height="30">
+                    <Canvas Width="24" Height="24">
+                      <Path Fill="#FFFFFFFF" Opacity="0.1" Data="M5.05,1.5 L3.6,2.95 L12.65,12 L3.6,21.05 L5.05,22.5 L15.55,12 L5.05,1.5" Height="14" Stretch="Fill" Width="9" Canvas.Left="4" Canvas.Top="5" />
+                      <Path Fill="#FFFFFFFF" Opacity="0.2" Data="M9.95,1.5 L8.5,2.95 L17.55,12 L8.5,21.05 L9.95,22.5 L20.45,12 L9.95,1.5" />
+                    </Canvas>
+                  </Viewbox>
+                  <Label Foreground="#fff" HorizontalAlignment="Left" FontSize="14" FontFamily="Segoe UI Light" Content="Динамические:" Height="30" Margin="0,0,0,0" />
+                </StackPanel>
+                <StackPanel Name="dynamic_fx_buttons_1" Orientation="Horizontal">
+                  <Button Name="dynamic_rainbow" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Радуга" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="dynamic_colormusic" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Цветомузыка" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="dynamic_wallcolor" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Цвет обой" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="dynamic_cpu_load" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Загрузка процессора" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                </StackPanel>
+                <StackPanel Name="dynamic_fx_buttons_2" Height="45" Orientation="Horizontal">
+                  <Button Name="dynamic_cpu_temp" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Температура процессора" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="dynamic_screen_capture" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Захват экрана" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="dynamic_syscolor" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Системный цвет" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                  <Button Name="dynamic_colors" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Width="180" Height="45" HorizontalAlignment="Left" BorderThickness="0" Content="Анимация по спектру" Cursor="Hand" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="ModeClick" />
+                </StackPanel>
+              </StackPanel>
+            </StackPanel>
+          </TabItem>
+          <TabItem Name="stTab">
+            <StackPanel VerticalAlignment="Center" Height="302" Margin="0,-20,0,0">
+              <Label Foreground="#999" HorizontalAlignment="Center" FontSize="26" FontFamily="Segoe UI Light" Content="Настройки:" />
+              <StackPanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" Height="30">
+                  <Label Width="250" Margin="10,0,10,0" Foreground="#999" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="18" Padding="0" FontFamily="Segoe UI Light" Content="Скорость анимации:" Height="25" />
+                  <Slider Name="speed_slider" IsMoveToPointEnabled="True" IsSelectionRangeEnabled="True" BorderThickness="0" Width="182" VerticalContentAlignment="Center" SmallChange="10" Style="{DynamicResource ModernSlider}" Margin="0,2" Maximum="100" TickFrequency="10" Cursor="Hand" MouseMove="slider_MouseMove" ValueChanged="Slider_ValueChanged" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30">
+                  <Label Width="250" Margin="10,0,10,0" Foreground="#999" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="18" Padding="0" FontFamily="Segoe UI Light" Content="Яркость:" Height="25" />
+                  <Slider Name="brightness_slider" IsMoveToPointEnabled="True" IsSelectionRangeEnabled="True" BorderThickness="0" Width="182" VerticalContentAlignment="Center" SmallChange="10" Style="{DynamicResource ModernSlider}" Margin="0,2" Maximum="100" TickFrequency="10" Cursor="Hand" MouseMove="slider_MouseMove" ValueChanged="brightness_slider_ValueChanged" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30">
+                  <Label Width="250" Margin="10,0,10,0" Foreground="#999" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="18" Padding="0" FontFamily="Segoe UI Light" Content="Монитор для захвата экрана:" Height="25" />
+                  <ComboBox Name="screens_list" VerticalContentAlignment="Center" Width="182" Style="{DynamicResource ModernComboBox}" Foreground="#ddd" Cursor="Hand" Margin="0,2" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30">
+                  <Label Width="250" Margin="10,0,10,0" Foreground="#999" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="18" Padding="0" FontFamily="Segoe UI Light" Content="Количество светодиодов:" Height="25" />
+                  <ComboBox Name="leds_list" VerticalContentAlignment="Center" Width="182" Style="{DynamicResource ModernComboBox}" Foreground="#ddd" Cursor="Hand" Margin="0,2" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30">
+                  <Label Width="250" Margin="10,0,10,0" Foreground="#999" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="18" Padding="0" FontFamily="Segoe UI Light" Content="Удалённый доступ:" Height="25" />
+                  <Button Name="remote_button" BorderThickness="0" BorderBrush="#00FFFFFF" Content="Включить" Width="182" Style="{DynamicResource ButtonStyle2}" Background="#00FFFFFF" Foreground="#999" Cursor="Hand" Margin="0,2,0,0" Height="26" VerticalAlignment="Top" MouseEnter="ModeHoverEnter" MouseLeave="ModeHoverLeave" Click="RemoteClick" />
+                </StackPanel>
+              </StackPanel>
+              <StackPanel Name="TokenPanel" Visibility="Hidden" Height="60" HorizontalAlignment="Center" Margin="176,20,176,0">
+                <TextBlock Foreground="#999" Height="23">
+                  <Run Text="Для авторизации откройте переписку с ботом и введите команду" />
+                </TextBlock>
+                <TextBox Name="Token_Textbox" BorderThickness="0" BorderBrush="#00FFFFFF" VerticalContentAlignment="Center" Foreground="#FFFFFFFF" Background="#222" TextAlignment="Center" IsReadOnlyCaretVisible="True" Height="27" Text="/auth token" />
+              </StackPanel>
+              <StackPanel Name="RestartPanel" Visibility="Hidden" Height="60" HorizontalAlignment="Center" Margin="176,-3,176,0">
+                <TextBlock Foreground="#999" Height="23">
+                  <Run Text="Перезапустите приложение, чтобы изменения вступили в силу" />
+                </TextBlock>
+              </StackPanel>
+            </StackPanel>
+          </TabItem>
+          <TabItem Name="custTab">
+            <StackPanel VerticalAlignment="Center" Height="302" Margin="0,-20,0,0">
+              <Label Foreground="#999" HorizontalAlignment="Center" FontSize="26" FontFamily="Segoe UI Light" Content="Выбор цвета:" Height="57" Margin="278,0" />
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Viewbox ClipToBounds="True" Width="200" Height="200">
+                  <Grid ClipToBounds="True" Width="200" Height="200">
+                    <Grid Name="Colorpicker" ClipToBounds="True" Width="200" Height="200" MouseMove="Colorpicker_MouseMove" MouseUp="Colorpicker_MouseUp">
+                      <Rectangle Name="hue_box" ClipToBounds="True" Grid.Column="0" Grid.Row="0" Width="205" Height="205" Fill="#FFFF0000" HorizontalAlignment="Center" />
+                      <Rectangle ClipToBounds="True" Grid.Column="0" Grid.Row="0" Width="205" Height="205" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Shape.Fill>
+                          <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                            <GradientStop Color="White" Offset="0.0" />
+                            <GradientStop Color="Transparent" Offset="1" />
+                          </LinearGradientBrush>
+                        </Shape.Fill>
+                      </Rectangle>
+                      <Rectangle ClipToBounds="True" Grid.Column="0" Grid.Row="0" Width="205" Height="205" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Shape.Fill>
+                          <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
+                            <GradientStop Color="Black" Offset="0.0" />
+                            <GradientStop Color="#00000000" Offset="1" />
+                          </LinearGradientBrush>
+                        </Shape.Fill>
+                      </Rectangle>
+                    </Grid>
+                    <Viewbox Name="cp_arrow" Margin="0,0,0,0" Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+                      <Canvas Height="20" Width="20">
+                        <Ellipse Width="20" Height="20" Opacity="1" Fill="#00FFFFFF" Stroke="#ddd" Canvas.Left="0" Canvas.Top="0" StrokeThickness="3" />
+                        <Ellipse Width="18" Height="18" Fill="#00FFFFFF" Stroke="#000" Opacity=".2" Canvas.Left="1" Canvas.Top="1" StrokeThickness="2" />
+                      </Canvas>
+                    </Viewbox>
+                  </Grid>
+                </Viewbox>
+                <Slider Name="Hue_slider" Margin="10,0,0,0" Cursor="Hand" IsMoveToPointEnabled="True" Width="21" Height="200" Orientation="Vertical" Style="{DynamicResource SliderStyle1}" MouseUp="Colorpicker_MouseUp" MouseMove="Hue_slider_MouseMove" ValueChanged="Hue_slider_ValueChanged" />
+              </StackPanel>
+              <Rectangle Name="result_color" Fill="#FFFF0000" Margin="242,10,242,0" Height="20" />
+            </StackPanel>
+          </TabItem>
+          <TabItem Name="infTab">
+            <StackPanel>
+              <Grid Height="360">
+                <Grid.RowDefinitions>
+                  <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition />
+                  <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                  <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="big_logo" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Path Data="M38.15,9.85 Q32.25,4 24,4 Q15.7,4 9.85,9.85 Q4,15.7 4,24 Q4,32.25 9.85,38.15 Q15.7,44 24,44 Q32.25,44 38.15,38.15 Q44,32.25 44,24 Q44,15.7 38.15,9.85 M26.7,18.65 L34.4,12.05 L34.4,20.9 L37.95,23.95 L24,35.9 L10,23.95 L13.55,20.9 L13.55,12.05 L21.3,18.65 L26.7,18.65" Height="180" Stretch="Fill" Width="180">
+                      <Shape.Fill>
+                        <LinearGradientBrush>
+                          <GradientStop Color="#3d81d1" Offset="1" />
+                          <GradientStop Color="#7D14BD" Offset="0" />
+                        </LinearGradientBrush>
+                      </Shape.Fill>
+                    </Path>
+                  </Canvas>
+                </StackPanel>
+                <TextBlock VerticalAlignment="Center" Padding="20" Grid.Column="1" Foreground="#777">
+                  <Run Text="FoxLED 1.0" FontSize="25" Foreground="#aaa" />
+                  <LineBreak />
+                  <Run Text="© Uk. Soft-Evolution" />
+                  <LineBreak />
+                  <LineBreak />
+                  <Run Foreground="#aaa" Text="Разработчики:" FontSize="17" />
+                  <LineBreak />
+                  <Run Text="Андрей Виноградов" />
+                  <LineBreak />
+                  <Run Text="Александр Мирошник" />
+                  <LineBreak />
+                  <LineBreak />
+                  <Run Foreground="#aaa" Text="Дизайн приложения:" FontSize="17" />
+                  <LineBreak />
+                  <Run Text="Андрей Виноградов" />
+                </TextBlock>
+              </Grid>
+            </StackPanel>
+          </TabItem>
+        </TabControl>
+      </Grid>
+    </Grid>
+    <Grid Row="2">
+      <Grid Column="1">
+        <Grid Background="#000" Opacity="0.4" />
+        <Rectangle Name="PseudoLED" />
+      </Grid>
+    </Grid>
+  </Grid>
+</Window>

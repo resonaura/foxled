@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+*.pyo
+build/
+dist/
+.vs/
+bin/
+obj/
+packages/

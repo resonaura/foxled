@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<LEDCache xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <speed>20</speed>
+  <last_anim>custom_color</last_anim>
+  <brightness>1</brightness>
+  <updateID>0</updateID>
+  <user_id>0</user_id>
+  <monitor_index>0</monitor_index>
+  <led_num>30</led_num>
+  <custom_color_hsb>
+    <double>0</double>
+    <double>1</double>
+    <double>0.1725</double>
+  </custom_color_hsb>
+</LEDCache>

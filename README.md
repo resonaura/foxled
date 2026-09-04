@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="logo.png" width="96" alt="FoxLED Logo" />
+  <img src="foxled-icon.png" width="96" alt="FoxLED Logo" />
 </p>
 
 # FoxLED
@@ -61,19 +61,24 @@ The solution (`FoxLED.sln`) contains two complementary components:
 
 ---
 
-## 🔬 Historical Prototypes & Evolution
+## 🎨 Brand & Logo Evolution (История логотипа)
 
-<p align="left">
-  <img src="logo-legacy.png" width="48" height="48" alt="Original EasyLED Prototype Icon" />
-  <br />
-  <sub><em>Original EasyLED prototype icon (48×48 px)</em></sub>
-</p>
+Visual identity progression across different stages of the project:
+
+| 1. EasyLED Prototype (2018) | 2. Geometric Fox Mascot (2019) | 3. Production App Icon (2019) |
+| :---: | :---: | :---: |
+| <img src="logo-legacy.png" width="48" height="48" alt="EasyLED Prototype Icon" /> | <img src="fox-led.png" width="80" height="80" alt="Origami Fox Mascot" /><br />[`fox-led.svg`](fox-led.svg) | <img src="foxled-icon.png" width="80" height="80" alt="Production App Icon" /><br />[`FoxLED/app.ico`](FoxLED/app.ico) |
+| **EasyLED Prototype**<br />Original 48×48 px square icon from the initial Python prototype | **Origami Fox Concept**<br />Vector low-poly geometric fox mascot designed for branding | **Official App Emblem**<br />256×256 Windows desktop application icon extracted from `FoxLED.exe` |
+
+---
+
+## 🔬 Historical Prototypes & Evolution
 
 Early prototypes and production builds are preserved in [`experiments/`](experiments/):
 
 - **[`experiments/python-prototype/`](experiments/python-prototype/)**: The initial 2018 Python 3.7 / PyQt5 prototype.
 - **[`experiments/client-bin/`](experiments/client-bin/)**: Original compiled Windows binaries (`FoxLED.exe`, `NAudio.dll`, `Newtonsoft.Json.dll`, `FoxLED Server.exe`).
-- **[`fox-led.svg`](fox-led.svg)**: Original vector asset of the origami geometric fox mascot.
+- **[`fox-led.svg`](fox-led.svg)**: Vector source file for the geometric fox mascot.
 
 ---
 
@@ -103,7 +108,8 @@ foxled/
 ├── experiments/                # Historical prototypes & binaries
 │   ├── python-prototype/       # 2018 Python PyQt prototype
 │   └── client-bin/             # Original compiled Windows binaries
-├── logo.png                    # Primary FoxLED emblem (256×256)
-├── logo-legacy.png             # Historical EasyLED prototype icon (48×48)
-└── fox-led.svg                 # Vector origami fox branding
+├── foxled-icon.png             # Primary FoxLED emblem extracted from app.ico (256×256)
+├── fox-led.svg                 # Vector origami fox branding
+├── fox-led.png                 # Rendered origami fox mascot
+└── logo-legacy.png             # Historical EasyLED prototype icon (48×48)
 ```

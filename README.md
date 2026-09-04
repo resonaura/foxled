@@ -1,4 +1,6 @@
-<img src="logo.png" width="80" alt="FoxLED Logo" />
+<p align="left">
+  <img src="logo.png" width="96" alt="FoxLED Logo" />
+</p>
 
 # FoxLED
 
@@ -22,7 +24,7 @@
 
 ## 💡 Origin & Recovery Story
 
-FoxLED started in 2018 as a Python experiment, then evolved into a complete, full-featured **C# WPF desktop workstation** in 2019. While auxiliary server files were preserved in archives, the primary client application's source files were recovered directly from original production binaries and debug symbols (`FoxLED.exe` / `FoxLED.pdb`), restoring the full C# code, vector UI, XAML styles, and custom animation engine.
+FoxLED started in 2018 as a Python experiment (originally titled *EasyLED*), then evolved into a complete, full-featured **C# WPF desktop workstation** in 2019. While auxiliary server files were preserved in archives, the primary client application's source files were recovered directly from original production binaries and debug symbols (`FoxLED.exe` / `FoxLED.pdb`), restoring the full C# code, vector UI, XAML styles, and custom animation engine.
 
 ---
 
@@ -59,12 +61,19 @@ The solution (`FoxLED.sln`) contains two complementary components:
 
 ---
 
-## 🔬 Historical Prototypes & Experiments
+## 🔬 Historical Prototypes & Evolution
+
+<p align="left">
+  <img src="logo-legacy.png" width="48" height="48" alt="Original EasyLED Prototype Icon" />
+  <br />
+  <sub><em>Original EasyLED prototype icon (48×48 px)</em></sub>
+</p>
 
 Early prototypes and production builds are preserved in [`experiments/`](experiments/):
 
 - **[`experiments/python-prototype/`](experiments/python-prototype/)**: The initial 2018 Python 3.7 / PyQt5 prototype.
 - **[`experiments/client-bin/`](experiments/client-bin/)**: Original compiled Windows binaries (`FoxLED.exe`, `NAudio.dll`, `Newtonsoft.Json.dll`, `FoxLED Server.exe`).
+- **[`fox-led.svg`](fox-led.svg)**: Original vector asset of the origami geometric fox mascot.
 
 ---
 
@@ -94,5 +103,7 @@ foxled/
 ├── experiments/                # Historical prototypes & binaries
 │   ├── python-prototype/       # 2018 Python PyQt prototype
 │   └── client-bin/             # Original compiled Windows binaries
-└── logo.png                    # Project branding
+├── logo.png                    # Primary FoxLED emblem (256×256)
+├── logo-legacy.png             # Historical EasyLED prototype icon (48×48)
+└── fox-led.svg                 # Vector origami fox branding
 ```

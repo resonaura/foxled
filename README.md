@@ -11,6 +11,7 @@
 [![Remote](https://img.shields.io/badge/Remote-Telegram%20Bot%20API-2CA5E0.svg?logo=telegram&logoColor=white)](#-foxled-desktop-client-features)
 [![Protocol](https://img.shields.io/badge/Protocol-Adalight%20Serial-orange.svg)](#architecture)
 [![Status](https://img.shields.io/badge/Status-Historical%20Archive%20(2018--2019)-yellow.svg)](#disclaimer--legacy-notice)
+
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/resonaura)
 
 **FoxLED** is a comprehensive ambient PC backlighting (ambilight) and audio-reactive lighting suite for Windows 10, interfacing with addressable WS2812B / FastLED strips via Arduino microcontrollers using the Adalight protocol.

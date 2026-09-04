@@ -1,2 +1,0 @@
-newGUI.py
-cmd
